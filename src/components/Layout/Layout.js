@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Container from '../../hoc/Conteiner';
 import classes from './Layout.css';
 
