@@ -5,10 +5,10 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 const burger = (props) => {
     let ingredients = Object
         .keys(props.ingredients)
-        .map((igKey) => {
-            return [...Array(props.ingredients[igKey])]
+        .map((idKey) => {
+            return [...Array(props.ingredients[idKey])]
                 .map((_, i) => (
-                   <BurgerIngredient key={igKey + i} type={igKey}/>
+                   <BurgerIngredient key={idKey + i} type={idKey}/>
                 ))
         })
         .reduce((arr, el) => {

@@ -5,9 +5,7 @@ import classes from './BurgerIngredient.css';
 class BurgerIngredient extends Component {
 
     render() {
-
         let ingredient;
-
         switch (this.props.type) {
             case 'bread-bottom':
                 ingredient = <div className={classes.BreadBottom}></div>;
@@ -41,7 +39,7 @@ class BurgerIngredient extends Component {
 }
 
 BurgerIngredient.propTypes = {
-    type: PropTypes.string.required
+    type: PropTypes.string.isRequired
 };
 
 export default BurgerIngredient;
