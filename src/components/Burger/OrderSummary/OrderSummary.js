@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../../hoc/Conteiner';
+import Container from '../../../hoc/Container/Conteiner';
 import Button from '../../../components/UI/Button/Button';
 
 const orderSummary = (props) => {
