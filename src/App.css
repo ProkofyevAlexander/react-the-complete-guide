@@ -1,0 +1,15 @@
+.Nav a,
+.Nav a:visited,
+.Nav a:active {
+    display: inline-block;
+    padding: 4px;
+    margin: 0 6px;
+    color: white;
+    border: 1px solid #cccccc;
+    background-color: #ff8c00;
+    text-decoration: none;
+}
+
+.Nav a:hover {
+    background-color: #b76200;
+}
