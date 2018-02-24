@@ -19,6 +19,14 @@ class Courses extends Component {
         };
     };
 
+    renderCourse = (props) => {
+        const course = this.state.courses.find((course) =>
+            course.id === +props.match.params.id
+        );
+        return <Course id={course.id}
+                       title={course.title}/>
+    };
+
     render() {
         return (
             <div>
@@ -35,7 +43,9 @@ class Courses extends Component {
                         })
                     }
                 </section>
-                <Route path={this.props.match.url + '/:id'} component={Course}/>
+                <Route
+                    path={this.props.match.url + '/:id'}
+                    render={this.renderCourse.bind(this)}/>
             </div>
         );
     }
