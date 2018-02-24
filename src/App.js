@@ -11,8 +11,8 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <nav className={classes.Nav}>
-                        <Link to="/courses">Users</Link>
-                        <Link to="/users">Courses</Link>
+                        <Link to="/courses">Courses</Link>
+                        <Link to="/users">Users</Link>
                     </nav>
                     <Route path="/courses" component={Courses}/>
                     <Route path="/users" component={Users}/>
