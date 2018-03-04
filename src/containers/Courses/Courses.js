@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import Course from '../Course/Course';
 import classes from './Courses.css';
@@ -13,18 +13,10 @@ class Courses extends Component {
         ]
     };
 
-    getCourseClickHandler = (id) => {
+    getCourseClickHandler = (course) => {
         return ()  => {
-            this.props.history.push(this.props.match.url + '/' + id)
+            this.props.history.push(this.props.match.url + '/' + course.id + '?title=' + encodeURI(course.title))
         };
-    };
-
-    renderCourse = (props) => {
-        const course = this.state.courses.find((course) =>
-            course.id === +props.match.params.id
-        );
-        return <Course id={course.id}
-                       title={course.title}/>
     };
 
     render() {
@@ -37,7 +29,7 @@ class Courses extends Component {
                             return <article
                                 className={classes.Course}
                                 key={course.id}
-                                onClick={this.getCourseClickHandler(course.id)}>
+                                onClick={this.getCourseClickHandler(course)}>
                                 {course.title}
                             </article>;
                         })
@@ -45,7 +37,7 @@ class Courses extends Component {
                 </section>
                 <Route
                     path={this.props.match.url + '/:id'}
-                    render={this.renderCourse.bind(this)}/>
+                    component={Course}/>
             </div>
         );
     }
