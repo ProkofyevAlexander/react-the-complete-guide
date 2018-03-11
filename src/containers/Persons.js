@@ -16,10 +16,6 @@ class Persons extends Component {
         this.props.onAddPerson(newPerson);
     };
 
-    personDeletedHandler = (personId) => {
-        this.props.onDeletePerson(personId);
-    };
-
     render() {
         return (
             <div>
@@ -29,7 +25,7 @@ class Persons extends Component {
                         key={person.id}
                         name={person.name}
                         age={person.age}
-                        clicked={() => this.personDeletedHandler(person.id)}/>
+                        clicked={() => this.props.onDeletePerson(person.id)}/>
                 ))}
             </div>
         );
