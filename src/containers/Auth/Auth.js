@@ -140,13 +140,13 @@ class Auth extends Component {
             )
             : null;
 
-        const redirect = this.props.isAuthenticated
+        const authRedirect = this.props.isAuthenticated
             ? <Redirect to={this.props.authRedirectPath}/>
             : null;
 
         return (
             <div className={classes.Auth}>
-                {redirect}
+                {authRedirect}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {from}

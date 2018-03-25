@@ -16,9 +16,7 @@ class App extends Component {
 
     render() {
 
-        let routes = [
-            <Route path="/auth" key="auth" component={Auth}/>,
-        ];
+        let routes = [];
 
         if (this.props.isAuthenticated) {
             routes = [
@@ -33,6 +31,7 @@ class App extends Component {
                 <Layout>
                     <Switch>
                         {routes}
+                        <Route path="/auth" key="auth" component={Auth}/>
                         <Route path="/" exact component={BurgerBuilder}/>
                         <Redirect to="/"/>
                     </Switch>
