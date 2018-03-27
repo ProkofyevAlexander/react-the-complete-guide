@@ -6,6 +6,7 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
+import { checkValidity } from '../../shared/utility';
 
 class Auth extends Component {
 
@@ -49,35 +50,6 @@ class Auth extends Component {
         }
     }
 
-    checkValidity(value, rules) {
-
-        if (!rules) {
-            return true;
-        }
-
-        let isValid = true;
-
-        value = value.trim();
-
-        if (isValid && rules.required) {
-            isValid = value !== '';
-        }
-
-        if (isValid && rules.minLength) {
-            isValid = value.length >= rules.minLength;
-        }
-
-        if (isValid && rules.maxLength) {
-            isValid = value.length <= rules.maxLength;
-        }
-
-        if (isValid && rules.isEmail) {
-            isValid = /.+@.+\..+/.test(value);
-        }
-
-        return isValid;
-    }
-
     inputChangedHandler = (event, controlName) => {
         const inputConfig = this.state.controls[controlName];
         const value = event.target.value;
@@ -86,7 +58,7 @@ class Auth extends Component {
             [controlName]: {
                 ...this.state.controls[controlName],
                 value: value,
-                valid: this.checkValidity(value, inputConfig.validation),
+                valid: checkValidity(value, inputConfig.validation),
                 touched: true
             }
         };
